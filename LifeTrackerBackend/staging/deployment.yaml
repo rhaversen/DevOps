@@ -28,18 +28,18 @@ spec:
                       requests:
                           cpu: "250m"
                           memory: "200M"
-                  image: "rhaversen/life-tracker-backend:c5c08d908864341b4c85dd7e97c6ba2deac76370"
+                  image: "rhaversen/life-tracker-backend:27e422b2a6dd6722f06b7d01abd8d8ddd9f58bfb"
                   imagePullPolicy: Always
                   livenessProbe:
                       httpGet:
-                          path: service/livez
+                          path: /api/service/livez
                           port: 5000
                       periodSeconds: 10
                       initialDelaySeconds: 15
                       failureThreshold: 5
                   readinessProbe:
                       httpGet:
-                          path: service/readyz
+                          path: /api/service/readyz
                           port: 5000
                       periodSeconds: 10
                       initialDelaySeconds: 15
