@@ -28,7 +28,7 @@ spec:
                       requests:
                           cpu: "250m"
                           memory: "200M"
-                  image: "rhaversen/life-tracker-backend:0abd7f36d134d842fbb0833e7b94bd2774bcad4d"
+                  image: "rhaversen/life-tracker-backend:7a5a443f927b8aab8d595d54c2982c01cd501115"
                   imagePullPolicy: Always
                   livenessProbe:
                       httpGet:
