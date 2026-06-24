@@ -26,6 +26,7 @@ The following directories are auto-generated and will be **overwritten** by CI/C
 - `GroupSchedulerFrontend/`
 - `LifeTrackerBackend/`
 - `LifeTrackerFrontend/`
+- `PortfolioFrontend/`
 
 **To modify these configurations**, edit the `k8s/` folder in the respective project repository.
 
