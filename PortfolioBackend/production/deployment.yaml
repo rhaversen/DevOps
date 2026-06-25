@@ -28,7 +28,7 @@ spec:
                         requests:
                             cpu: "250m"
                             memory: "200M"
-                    image: "rhaversen/portfolio-backend:${GITHUB_SHA}"
+                    image: "rhaversen/portfolio-backend:a308d2aaf1c32d5a4f539f3137523ee347fe9a7d"
                     imagePullPolicy: Always
                     livenessProbe:
                         httpGet:
