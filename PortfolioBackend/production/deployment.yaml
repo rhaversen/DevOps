@@ -28,7 +28,7 @@ spec:
                         requests:
                             cpu: "250m"
                             memory: "200M"
-                    image: "rhaversen/portfolio-backend:8bf25f3a785177a328df4efa0bdf4990c5c33769"
+                    image: "rhaversen/portfolio-backend:eb3bfbb8c0d577309dd47317be57ef381a11af3b"
                     imagePullPolicy: Always
                     livenessProbe:
                         httpGet:
