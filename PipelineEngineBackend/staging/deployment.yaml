@@ -28,7 +28,7 @@ spec:
                         requests:
                             cpu: "250m"
                             memory: "200M"
-                    image: "rhaversen/pipeline-engine-backend:staging"
+                    image: "rhaversen/pipeline-engine-backend:8f565554e2249c7d1b0a7f139e1296312534d42b"
                     imagePullPolicy: Always
                     livenessProbe:
                         httpGet:
