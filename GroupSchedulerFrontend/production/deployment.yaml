@@ -21,13 +21,6 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: frontend-deployment
-                    resources:
-                        limits:
-                            cpu: "400m"
-                            memory: "300M"
-                        requests:
-                            cpu: "250m"
-                            memory: "200M"
                     image: "rhaversen/group-scheduler-frontend:0f4b46f62912001f12d320518ba739061630a1b5"
                     imagePullPolicy: Always
                     livenessProbe:

@@ -21,13 +21,6 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: backend-deployment
-                    resources:
-                        limits:
-                            cpu: "400m"
-                            memory: "300M"
-                        requests:
-                            cpu: "250m"
-                            memory: "200M"
                     image: "rhaversen/portfolio-backend:eb3bfbb8c0d577309dd47317be57ef381a11af3b"
                     imagePullPolicy: Always
                     livenessProbe:

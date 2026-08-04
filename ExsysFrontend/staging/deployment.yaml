@@ -21,13 +21,6 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: frontend-deployment
-                    resources:
-                        limits:
-                            cpu: "400m"
-                            memory: "300M"
-                        requests:
-                            cpu: "250m"
-                            memory: "200M"
                     image: "rhaversen/exsys-frontend:c43c7add4108d1222cb9447410b30885b8f70d95"
                     imagePullPolicy: Always
                     livenessProbe:

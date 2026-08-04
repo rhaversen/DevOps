@@ -21,13 +21,6 @@ spec:
             automountServiceAccountToken: false
             containers:
                 - name: backend-deployment
-                  resources:
-                      limits:
-                          cpu: "400m"
-                          memory: "300M"
-                      requests:
-                          cpu: "250m"
-                          memory: "200M"
                   image: "rhaversen/life-tracker-backend:dcb04b062dd853aa86f41c12967554e2f3db6a5d"
                   imagePullPolicy: Always
                   livenessProbe:

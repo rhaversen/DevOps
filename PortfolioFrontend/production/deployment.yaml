@@ -21,13 +21,6 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: frontend-deployment
-                    resources:
-                        limits:
-                            cpu: "400m"
-                            memory: "300M"
-                        requests:
-                            cpu: "250m"
-                            memory: "200M"
                     image: "rhaversen/portfolio-frontend:a77d1e2eb5c866b18c0d6c1857caf07084cd2a75"
                     imagePullPolicy: Always
                     livenessProbe:

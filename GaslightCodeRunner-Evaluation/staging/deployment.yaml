@@ -21,13 +21,6 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: evaluation-runner-deployment
-                    resources:
-                        limits:
-                            cpu: "400m"
-                            memory: "300M"
-                        requests:
-                            cpu: "250m"
-                            memory: "200M"
                     image: "rhaversen/gaslight-code-runner:07ae97493951a2eed5b9fb17cc592fffc1e2a324"
                     imagePullPolicy: Always
                     livenessProbe:

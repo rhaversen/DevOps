@@ -21,13 +21,6 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: backend-deployment
-                    resources:
-                        limits:
-                            cpu: "400m"
-                            memory: "300M"
-                        requests:
-                            cpu: "250m"
-                            memory: "200M"
                     image: "rhaversen/group-scheduler-backend:eed80cd6e9adf5448124c829890002e7e4df7591"
                     imagePullPolicy: Always
                     livenessProbe:

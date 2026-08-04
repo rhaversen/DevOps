@@ -21,13 +21,6 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: frontend-deployment
-                    resources:
-                        limits:
-                            cpu: "400m"
-                            memory: "300M"
-                        requests:
-                            cpu: "250m"
-                            memory: "200M"
                     image: "rhaversen/pipeline-engine-frontend:2638ad5e918c18b869c393a254962597dc7369f0"
                     imagePullPolicy: Always
                     livenessProbe:

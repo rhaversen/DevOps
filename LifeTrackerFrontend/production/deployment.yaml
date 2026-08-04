@@ -21,13 +21,6 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: frontend-deployment
-                    resources:
-                        limits:
-                            cpu: "0.5"
-                            memory: "512Mi"
-                        requests:
-                            cpu: "0.2"
-                            memory: "256Mi"
                     image: "rhaversen/life-tracker-frontend:1a23e4e35283a7bd502fbe80086519ba63f04e3f"
                     imagePullPolicy: Always
                     livenessProbe:

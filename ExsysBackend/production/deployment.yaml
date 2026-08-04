@@ -21,13 +21,6 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: backend-deployment
-                    resources:
-                        limits:
-                            cpu: "400m"
-                            memory: "300M"
-                        requests:
-                            cpu: "250m"
-                            memory: "200M"
                     image: "rhaversen/exsys-backend:5f781d90c55031e75f80c75f40f0d219c90e22f2"
                     imagePullPolicy: Always
                     livenessProbe:

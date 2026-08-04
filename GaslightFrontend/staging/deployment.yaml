@@ -21,13 +21,6 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: frontend-deployment
-                    resources:
-                        limits:
-                            cpu: "400m"
-                            memory: "300M"
-                        requests:
-                            cpu: "250m"
-                            memory: "200M"
                     image: "rhaversen/gaslight-frontend:aa748b27efe866e3dd681967e86a58b3f055e5f2"
                     imagePullPolicy: Always
                     livenessProbe:
