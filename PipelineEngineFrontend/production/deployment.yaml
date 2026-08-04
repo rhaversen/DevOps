@@ -4,7 +4,7 @@ metadata:
     name: frontend-deployment
     namespace: pipeline-engine-production
 spec:
-    replicas: 2
+    replicas: 1
     strategy:
         type: RollingUpdate
         rollingUpdate:
