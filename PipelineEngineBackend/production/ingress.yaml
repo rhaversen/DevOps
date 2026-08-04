@@ -9,10 +9,10 @@ spec:
     ingressClassName: nginx
     tls:
         -   hosts:
-                - api.pipeline.facture.live
+                - pipeline.facture.live
             secretName: backend-tls
     rules:
-        -   host: api.pipeline.facture.live
+        -   host: pipeline.facture.live
             http:
                 paths:
                     # API Path
