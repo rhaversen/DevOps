@@ -5,6 +5,10 @@ metadata:
     namespace: pipeline-engine-production
     annotations:
         cert-manager.io/cluster-issuer: letsencrypt-production
+        # Multer accepts up to 20 MB/photo × 8 photos (~160 MB) + multipart
+        # overhead. Raising NGINX's body limit so the ingress default of 1 MB
+        # doesn't reject photo uploads with 413 before they reach Express.
+        nginx.ingress.kubernetes.io/proxy-body-size: "200m"
 spec:
     ingressClassName: nginx
     tls:
