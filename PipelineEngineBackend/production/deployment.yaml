@@ -21,7 +21,7 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: backend-deployment
-                    image: "rhaversen/pipeline-engine-backend:28e5541e4f272574fa1c40dd9e7e4a19af88c78b"
+                    image: "rhaversen/pipeline-engine-backend:d23fd2c8fd81c9dbced767057fa97043fd965d03"
                     imagePullPolicy: Always
                     livenessProbe:
                         httpGet:
