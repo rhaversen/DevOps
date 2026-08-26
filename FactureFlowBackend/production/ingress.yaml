@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: backend-ingress
+    namespace: facture-flow-production
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-production
+        # Multer accepts up to 20 MB/photo × 8 photos (~160 MB) + multipart
+        # overhead. Raising NGINX's body limit so the ingress default of 1 MB
+        # doesn't reject photo uploads with 413 before they reach Express.
+        nginx.ingress.kubernetes.io/proxy-body-size: "200m"
+spec:
+    ingressClassName: nginx
+    tls:
+        -   hosts:
+                - flow.facture.live
+            secretName: backend-tls
+    rules:
+        -   host: flow.facture.live
+            http:
+                paths:
+                    # API Path
+                    -   path: /api/
+                        pathType: Prefix
+                        backend:
+                            service:
+                                name: backend-service
+                                port:
+                                    number: 80
