@@ -18,6 +18,10 @@ The following directories are auto-generated and will be **overwritten** by CI/C
 
 - `ExsysBackend/`
 - `ExsysFrontend/`
+- `FactureFlowBackend/`
+- `FactureFlowFrontend/`
+- `FactureForgeBackend/`
+- `FactureForgeFrontend/`
 - `GaslightBackend/`
 - `GaslightCodeRunner-Evaluation/`
 - `GaslightCodeRunner-Tournament/`
