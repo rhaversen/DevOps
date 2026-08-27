@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: backend-ingress
+    namespace: facture-forge-staging
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+spec:
+    ingressClassName: nginx
+    tls:
+        -   hosts:
+                - staging.forge.facture.live
+            secretName: backend-tls
+    rules:
+        -   host: staging.forge.facture.live
+            http:
+                paths:
+                    # API Path
+                    -   path: /api/
+                        pathType: Prefix
+                        backend:
+                            service:
+                                name: backend-service
+                                port:
+                                    number: 80
