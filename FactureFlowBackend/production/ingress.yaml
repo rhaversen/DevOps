@@ -9,6 +9,12 @@ metadata:
         # overhead. Raising NGINX's body limit so the ingress default of 1 MB
         # doesn't reject photo uploads with 413 before they reach Express.
         nginx.ingress.kubernetes.io/proxy-body-size: "200m"
+        # POST /api/runs/:id/images runs up to 8 sequential vision LLM calls
+        # plus an agent step before responding; the 60s default
+        # proxy-read-timeout returns 504 to the client while Express is still
+        # working. Give the vision pipeline headroom (10 min).
+        nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+        nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
 spec:
     ingressClassName: nginx
     tls:
