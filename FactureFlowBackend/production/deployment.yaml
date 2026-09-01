@@ -21,24 +21,24 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: backend-deployment
-                    image: "rhaversen/facture-flow-backend:a03c7e0ac80fcba6523783bf511f21673f42e412"
+                    image: "rhaversen/facture-flow-backend:17a3e150f6605fa7fd2fa5a2a94af6f3376ac3c0"
                     imagePullPolicy: Always
                     livenessProbe:
                         httpGet:
                             path: api/service/livez
-                            port: 3001
+                            port: 5000
                         periodSeconds: 10
                         initialDelaySeconds: 15
                         failureThreshold: 5
                     readinessProbe:
                         httpGet:
                             path: api/service/readyz
-                            port: 3001
+                            port: 5000
                         periodSeconds: 10
                         initialDelaySeconds: 15
                         failureThreshold: 5
                     ports:
-                        -   containerPort: 3001
+                        -   containerPort: 5000
                     envFrom:
                         -   secretRef:
                                 name: backend-secrets
