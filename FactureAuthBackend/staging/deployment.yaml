@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: backend-deployment
+    namespace: facture-auth-staging
+spec:
+    replicas: 1
+    strategy:
+        type: RollingUpdate
+        rollingUpdate:
+            maxUnavailable: 0
+            maxSurge: 1
+    selector:
+        matchLabels:
+            app: backend-deployment
+    template:
+        metadata:
+            labels:
+                app: backend-deployment
+        spec:
+            automountServiceAccountToken: false
+            containers:
+                -   name: backend-deployment
+                    image: "rhaversen/facture-auth-backend:b7749d75dca1b68b4af3f5cd937c7affe45bcd04"
+                    imagePullPolicy: Always
+                    livenessProbe:
+                        httpGet:
+                            path: api/service/livez
+                            port: 5000
+                        periodSeconds: 10
+                        initialDelaySeconds: 15
+                        failureThreshold: 5
+                    readinessProbe:
+                        httpGet:
+                            path: api/service/readyz
+                            port: 5000
+                        periodSeconds: 10
+                        initialDelaySeconds: 15
+                        failureThreshold: 5
+                    ports:
+                        -   containerPort: 5000
+                    env:
+                        -   name: NODE_ENV
+                            value: staging
+                    envFrom:
+                        -   secretRef:
+                                name: backend-secrets
