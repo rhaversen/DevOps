@@ -21,24 +21,24 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: backend-deployment
-                    image: "rhaversen/facture-forge-backend:1f31ac9cdb96051cbe066bdc92b2ee2fd2e04c45"
+                    image: "rhaversen/facture-forge-backend:8785c8bef654fedac2ef00b69304da1356fb7a75"
                     imagePullPolicy: Always
                     livenessProbe:
                         httpGet:
                             path: api/service/livez
-                            port: 3001
+                            port: 5000
                         periodSeconds: 10
                         initialDelaySeconds: 15
                         failureThreshold: 5
                     readinessProbe:
                         httpGet:
                             path: api/service/readyz
-                            port: 3001
+                            port: 5000
                         periodSeconds: 10
                         initialDelaySeconds: 15
                         failureThreshold: 5
                     ports:
-                        -   containerPort: 3001
+                        -   containerPort: 5000
                     envFrom:
                         -   secretRef:
                                 name: backend-secrets
