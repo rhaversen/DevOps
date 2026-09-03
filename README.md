@@ -18,6 +18,8 @@ The following directories are auto-generated and will be **overwritten** by CI/C
 
 - `ExsysBackend/`
 - `ExsysFrontend/`
+- `FactureAuthBackend/`
+- `FactureAuthFrontend/`
 - `FactureFlowBackend/`
 - `FactureFlowFrontend/`
 - `FactureForgeBackend/`
