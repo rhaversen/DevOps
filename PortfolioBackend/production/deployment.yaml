@@ -21,7 +21,7 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: backend-deployment
-                    image: "rhaversen/portfolio-backend:eb3bfbb8c0d577309dd47317be57ef381a11af3b"
+                    image: "rhaversen/portfolio-backend:5fe2165574d69ff0a2a4f6de441a45c8428a6b7b"
                     imagePullPolicy: Always
                     livenessProbe:
                         httpGet:
