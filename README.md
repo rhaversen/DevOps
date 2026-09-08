@@ -24,6 +24,7 @@ The following directories are auto-generated and will be **overwritten** by CI/C
 - `FactureFlowFrontend/`
 - `FactureForgeBackend/`
 - `FactureForgeFrontend/`
+- `FactureRepairCADFrontend`
 - `GaslightBackend/`
 - `GaslightCodeRunner-Evaluation/`
 - `GaslightCodeRunner-Tournament/`
