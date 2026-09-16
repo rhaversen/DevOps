@@ -21,7 +21,7 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: frontend-deployment
-                    image: "rhaversen/dupontdoku-frontend:f06c8aa16d90472070cc7a29f9fb3cd38e82e97b"
+                    image: "rhaversen/dupontdoku-frontend:1a752c38f3adacc24e58029809097b99a2317e79"
                     imagePullPolicy: Always
                     livenessProbe:
                         httpGet:
