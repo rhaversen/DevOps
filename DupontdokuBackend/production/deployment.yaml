@@ -28,7 +28,7 @@ spec:
                         requests:
                             cpu: "150m"
                             memory: "150M"
-                    image: "rhaversen/dupontdoku-backend:f866f97882948fa7ef1dca27776345b78ee58b86"
+                    image: "rhaversen/dupontdoku-backend:ef72fdb7c39c9bfeeb0d8257892da031c30d4276"
                     imagePullPolicy: Always
                     livenessProbe:
                         httpGet:
