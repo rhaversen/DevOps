@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: llm-deployment
+    namespace: facture-llm-backend-production
+spec:
+    replicas: 1
+    strategy:
+        type: RollingUpdate
+        rollingUpdate:
+            maxUnavailable: 0
+            maxSurge: 1
+    selector:
+        matchLabels:
+            app: llm-deployment
+    template:
+        metadata:
+            labels:
+                app: llm-deployment
+        spec:
+            automountServiceAccountToken: false
+            containers:
+                -   name: llm-deployment
+                    image: "rhaversen/facture-llm-backend:90649edb2981f0258d23a779bf6e015165a0a875"
+                    imagePullPolicy: Always
+                    livenessProbe:
+                        httpGet:
+                            path: health
+                            port: 5008
+                        periodSeconds: 10
+                        initialDelaySeconds: 15
+                        failureThreshold: 5
+                    readinessProbe:
+                        httpGet:
+                            path: health
+                            port: 5008
+                        periodSeconds: 10
+                        initialDelaySeconds: 15
+                        failureThreshold: 5
+                    ports:
+                        -   containerPort: 5008
+                    envFrom:
+                        -   secretRef:
+                                name: llm-secrets
