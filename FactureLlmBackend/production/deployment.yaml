@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
     name: llm-deployment
-    namespace: facture-llm-backend-production
+    namespace: facture-llm-production
 spec:
     replicas: 1
     strategy:
@@ -21,7 +21,7 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: llm-deployment
-                    image: "rhaversen/facture-llm-backend:9d9f622543db6c92185afede23937094513099a6"
+                    image: "rhaversen/facture-llm-backend:74c33e5c4a9293b94bf4eaf446af1111e836656f"
                     imagePullPolicy: Always
                     livenessProbe:
                         httpGet:
