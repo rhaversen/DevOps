@@ -9,4 +9,4 @@ spec:
         app: llm-deployment
     ports:
         -   port: 80
-            targetPort: 5008
+            targetPort: 5000

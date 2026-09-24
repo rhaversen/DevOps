@@ -25,20 +25,20 @@ spec:
                     imagePullPolicy: Always
                     livenessProbe:
                         httpGet:
-                            path: health
-                            port: 5008
+                            path: api/service/livez
+                            port: 5000
                         periodSeconds: 10
                         initialDelaySeconds: 15
                         failureThreshold: 5
                     readinessProbe:
                         httpGet:
-                            path: health
-                            port: 5008
+                            path: api/service/readyz
+                            port: 5000
                         periodSeconds: 10
                         initialDelaySeconds: 15
                         failureThreshold: 5
                     ports:
-                        -   containerPort: 5008
+                        -   containerPort: 5000
                     envFrom:
                         -   secretRef:
                                 name: llm-secrets
