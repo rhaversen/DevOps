@@ -21,7 +21,7 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: backend-deployment
-                    image: "rhaversen/gaslight-backend:154be4eac69f2ec03624c3644f50143ad7cec13d"
+                    image: "rhaversen/gaslight-backend:a7d0d038dc47a3b83b3d995aa59da246973c279a"
                     imagePullPolicy: Always
                     livenessProbe:
                         httpGet:
