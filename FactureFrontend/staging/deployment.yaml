@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: frontend-deployment
+    namespace: facture-staging
+spec:
+    replicas: 1
+    strategy:
+        type: RollingUpdate
+        rollingUpdate:
+            maxUnavailable: 0
+            maxSurge: 1
+    selector:
+        matchLabels:
+            app: frontend-deployment
+    template:
+        metadata:
+            labels:
+                app: frontend-deployment
+        spec:
+            automountServiceAccountToken: false
+            containers:
+                -   name: frontend-deployment
+                    image: "rhaversen/facture-frontend:6933fa29942227be43f2fab4054006f41e4b9130"
+                    imagePullPolicy: Always
+                    envFrom:
+                        -   secretRef:
+                                name: frontend-secrets
+                    ports:
+                        -   containerPort: 3000
