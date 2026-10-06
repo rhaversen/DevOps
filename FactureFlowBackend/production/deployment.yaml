@@ -21,7 +21,7 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: backend-deployment
-                    image: "rhaversen/facture-flow-backend:db3f3e3c2b60010b9a0b0a921aef74ed657ec4f5"
+                    image: "rhaversen/facture-flow-backend:ef814708b6113c3e34642582e118b1aa9a205a7e"
                     imagePullPolicy: Always
                     livenessProbe:
                         httpGet:
