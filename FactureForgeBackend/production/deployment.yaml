@@ -21,7 +21,7 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: backend-deployment
-                    image: "rhaversen/facture-forge-backend:0c6e4ad83f4d246d6a0ccdb50b016752ca64de93"
+                    image: "rhaversen/facture-forge-backend:00bfd6d57c10a28fb0928f729084cd3e0c1ad12e"
                     imagePullPolicy: Always
                     livenessProbe:
                         httpGet:
