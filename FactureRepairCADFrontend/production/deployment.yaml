@@ -21,7 +21,7 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: frontend-deployment
-                    image: "rhaversen/facture-repaircad-frontend:94152a84a35db3f011f5db2c380816db4ed81f1b"
+                    image: "rhaversen/facture-repaircad-frontend:06db4ee469220b3efa90229eeb5d1af57faf7800"
                     imagePullPolicy: Always
                     livenessProbe:
                         httpGet:
