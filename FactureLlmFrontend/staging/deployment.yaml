@@ -21,7 +21,7 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: frontend-deployment
-                    image: "rhaversen/facture-llm-frontend:9c8fa1168329a8327064699a4922f63d90bfe86b"
+                    image: "rhaversen/facture-llm-frontend:8b859823994f390c1b0993b6f25650d2151cf783"
                     imagePullPolicy: Always
                     livenessProbe:
                         httpGet:
