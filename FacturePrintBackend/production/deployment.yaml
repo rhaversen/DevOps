@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: print-deployment
+    namespace: facture-print-production
+spec:
+    replicas: 1
+    strategy:
+        type: RollingUpdate
+        rollingUpdate:
+            maxUnavailable: 0
+            maxSurge: 1
+    selector:
+        matchLabels:
+            app: print-deployment
+    template:
+        metadata:
+            labels:
+                app: print-deployment
+        spec:
+            automountServiceAccountToken: false
+            containers:
+                -   name: print-deployment
+                    image: "rhaversen/facture-print-backend:1d59770c972007d73b7405f2773798d7c8528851"
+                    imagePullPolicy: Always
+                    livenessProbe:
+                        httpGet:
+                            path: api/service/livez
+                            port: 5000
+                        periodSeconds: 10
+                        initialDelaySeconds: 15
+                        failureThreshold: 5
+                    readinessProbe:
+                        httpGet:
+                            path: api/service/readyz
+                            port: 5000
+                        periodSeconds: 10
+                        initialDelaySeconds: 15
+                        failureThreshold: 5
+                    ports:
+                        -   containerPort: 5000
+                    envFrom:
+                        -   secretRef:
+                                name: print-secrets
