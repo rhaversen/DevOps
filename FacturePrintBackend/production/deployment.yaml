@@ -21,7 +21,7 @@ spec:
             automountServiceAccountToken: false
             containers:
                 -   name: print-deployment
-                    image: "rhaversen/facture-print-backend:568095a9683f47d28daa1353d1b4471f7e05d74a"
+                    image: "rhaversen/facture-print-backend:cb6ebf29723cdf51509f97254663a7a4c24aa366"
                     imagePullPolicy: Always
                     livenessProbe:
                         httpGet:
@@ -42,7 +42,7 @@ spec:
                     env:
                         # the commit it runs: printers running another are told to update to it
                         -   name: SERVICE_COMMIT
-                            value: "568095a9683f47d28daa1353d1b4471f7e05d74a"
+                            value: "cb6ebf29723cdf51509f97254663a7a4c24aa366"
                     envFrom:
                         -   secretRef:
                                 name: print-secrets
