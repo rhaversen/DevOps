@@ -5,6 +5,12 @@ metadata:
     namespace: facture-print-production
     annotations:
         cert-manager.io/cluster-issuer: letsencrypt-production
+        # uploads: an STL and its build file up to the service's upload.maxMb (64), with the multipart around them
+        nginx.ingress.kubernetes.io/proxy-body-size: "70m"
+        # a G-code download is sliced again on the spot (up to slicer.timeoutMs, 120 s); Cloudflare in front gives up
+        # at 100 s whatever this says. The printers' WebSocket is idle at most 25 s between pings.
+        nginx.ingress.kubernetes.io/proxy-read-timeout: "130"
+        nginx.ingress.kubernetes.io/proxy-send-timeout: "130"
 spec:
     ingressClassName: nginx
     tls:
