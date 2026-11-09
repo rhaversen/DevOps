@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: backend-ingress
+    namespace: facture-production
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-production
+spec:
+    ingressClassName: nginx
+    tls:
+        -   hosts:
+                - facture.live
+            secretName: backend-tls
+    rules:
+        -   host: facture.live
+            http:
+                paths:
+                    # API Path: the homepage itself (facture-frontend) is served on / of the same host
+                    -   path: /api/
+                        pathType: Prefix
+                        backend:
+                            service:
+                                name: backend-service
+                                port:
+                                    number: 80
