@@ -16,6 +16,8 @@ This ensures that:
 
 The following directories are auto-generated and will be **overwritten** by CI/CD pipelines:
 
+- `DupontdokuBackend/`
+- `DupontdokuFrontend/`
 - `ExsysBackend/`
 - `ExsysFrontend/`
 - `FactureAuthBackend/`
@@ -24,7 +26,10 @@ The following directories are auto-generated and will be **overwritten** by CI/C
 - `FactureFlowFrontend/`
 - `FactureForgeBackend/`
 - `FactureForgeFrontend/`
+- `FactureFrontend/`
 - `FactureLlmBackend/`
+- `FacturePrintBackend/`
+- `FacturePrintFrontend/`
 - `FactureLlmFrontend/`
 - `FactureRepairCADFrontend`
 - `GaslightBackend/`
