@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: print-deployment
+    namespace: facture-print-staging
+spec:
+    replicas: 1
+    strategy:
+        type: RollingUpdate
+        rollingUpdate:
+            maxUnavailable: 0
+            maxSurge: 1
+    selector:
+        matchLabels:
+            app: print-deployment
+    template:
+        metadata:
+            labels:
+                app: print-deployment
+        spec:
+            automountServiceAccountToken: false
+            containers:
+                -   name: print-deployment
+                    image: "rhaversen/facture-print-backend:9d85f2eb2900268aa7f930862262cff0647a8a70"
+                    imagePullPolicy: Always
+                    livenessProbe:
+                        httpGet:
+                            path: api/service/livez
+                            port: 5000
+                        periodSeconds: 10
+                        initialDelaySeconds: 15
+                        failureThreshold: 5
+                    readinessProbe:
+                        httpGet:
+                            path: api/service/readyz
+                            port: 5000
+                        periodSeconds: 10
+                        initialDelaySeconds: 15
+                        failureThreshold: 5
+                    ports:
+                        -   containerPort: 5000
+                    env:
+                        # the commit it runs: printers running another are told to update to it
+                        -   name: SERVICE_COMMIT
+                            value: "9d85f2eb2900268aa7f930862262cff0647a8a70"
+                    envFrom:
+                        -   secretRef:
+                                name: print-secrets
